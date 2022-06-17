@@ -374,14 +374,22 @@ dt
       width: 135%
       
       img
-        transform: translateX(-65px) translateY(20px)
+        margin-left: -135px
+        margin-top: 20px
 
     .text
-      padding-top: 55px
+      padding-top: 34px
 
     dt
       padding: 0 73px
       margin-bottom: 24px
+
+.listening
+  opacity: 0
+
+.listening
+  &.animated
+    animation: toFoward 2s ease 0s 1 normal forwards
 
 @keyframes slideBottom
   0%
@@ -391,4 +399,14 @@ dt
   100%
     opacity: 1
     transform: translateY(2px)
+
+
+@keyframes toFoward
+  0%
+    opacity: .9
+    transform: scale(0.6)
+
+  100%
+    opacity: 1
+    transform: scale(1)
     
