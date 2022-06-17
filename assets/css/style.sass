@@ -36,6 +36,7 @@ body, button, p, a
   line-height: 20px
   font-family: $font_family_secondary
   font-weight: 300
+  color: #818284
 
 img
   max-width: 100%
@@ -57,7 +58,16 @@ dd
   line-height: 1.74
 
   &:not(:last-of-type)
-    margin-bottom: 50px
+    margin-bottom: 46px
+
+dt
+  font-family: $font_family_primary
+  font-weight: 600
+  color: #283b54
+
+  &:nth-of-type(2)
+    margin-bottom: 23px
+    
 
 .container
   height: 100%
@@ -87,16 +97,29 @@ dd
   &-nav
     display: none
     position: absolute
-    top: 0
+    top: 14px
     left: 0
     width: 100%
 
     .submenu
       display: none
       padding: 20px 0
-      
+
+      a
+        font-family: $font_family_primary
+        font-weight: 600
+        color: $very_dark_grayish_blue
+        font-size: 16px
+
+        &:hover
+          color: $very_dark_black_blue
+
     .menu
       border: 0
+      color: $very_dark_black_blue
+      font-family: $font_family_primary
+      font-size: 18px
+      font-weight: 600
 
       &::after
         content: url('../images/icon-arrow-dark.svg')
@@ -104,12 +127,18 @@ dd
         margin-left: 10px
 
       &-item
-        width: 80%
+        width: 100%
 
         &:hover > .submenu, &:focus-within  > .submenu, .submenu:hover
           display: flex
           flex-direction: column
           gap: 20px
+
+          background: #efeff1
+          margin: 24px auto 0
+          border-radius: 6px
+          padding: 24px 0 30px
+          width: 96%
 
   &-menu
     list-style: none
@@ -120,7 +149,7 @@ dd
   &-footer
     text-align: center
     padding: 73px 20px 74px
-    background-color: $very_dark_gray_blue
+    background-color: #24242c
     border-top-right-radius: 100px
     color: $white
     margin-top: 20px
@@ -131,9 +160,10 @@ dd
 
     .title
       display: block
-      font-weight: 500
+      font-weight: 600
       padding-bottom: 19px
       font-size: 18px
+      font-family: $font_family_primary
 
 .secondary-nav
   display: flex
@@ -146,9 +176,10 @@ dd
     gap: 11px
 
     a
-      color: white
+      color: darken($white, 25%)
       font-size: 18px
       line-height: 23px
+      font-weight: 400
 
 .hero
   grid-column: 1/3
@@ -165,6 +196,7 @@ dd
   p
     font-size: 18px
     line-height: 1.2
+    color: $white
 
 .toggle-nav
   grid-column: 2/3
@@ -176,6 +208,7 @@ dd
 
   &:checked
     + label
+      content: url('../images/icon-close.svg')
       + .main-nav
         grid-column: 1/3
         grid-row: 2/4
@@ -184,18 +217,24 @@ dd
         flex-direction: column
         gap: 20px
         text-align: center
+        background-color: $white
+        padding: 20px 20px 30px
+        border-radius: 6px
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
 
         .main
-
-          &-actions
-
           &-menu, &-actions
             display: flex
             flex-direction: column
-            gap: 20px
-            padding: 20px 0
+            gap: 30px
+            padding: 13px 0 0
             justify-content: center
             align-items: center
+          
+          &-actions
+            border-top: 1px solid $grayish_blue
+            padding-top: 12px
+            gap: 5px
 
 .cta
   &-container
@@ -206,7 +245,7 @@ dd
     justify-content: center
     align-items: center
 
-  &-start, &-more, &-sign-up
+  &-start, &-more, &-sign-up, &-login
     border: 1px solid $white
     border-radius: $border-radius
     min-width: 137px
@@ -215,17 +254,28 @@ dd
     align-items: center
     justify-content: center
     font-family: $font_family_secondary
-    font-weight: 500
+    font-weight: 700
 
   &-start
     background-color: $white
-    color: $very_light_red
+    color: #f55767
 
   &-sign-up
     max-width: 200px
+    background-image: linear-gradient(150deg,#ff8f70,#ff3d54)
+    color: $white
+    border: $light_red
+    font-weight: 700
 
   &-more
     color: $white
+
+  &-login
+    font-family: $font_family_primary
+    color: $very_dark_grayish_blue
+    font-size: 19px
+    font-weight: 600
+    margin-top: 6px
 
 .section
   &-intro, &-state, &-features
@@ -234,10 +284,12 @@ dd
     overflow: hidden
 
     h2
-      margin-bottom: 54px
-      color: $very_dark_black_blue
-      font-size: 25px
-      font-weight: 500
+      margin-bottom: 45px
+      color: #283b54
+      font-size: 26px
+      line-height: 30px
+      font-weight: 600
+      font-family: $font_family_primary
 
   &-intro
     padding-top: 79px
@@ -252,7 +304,7 @@ dd
 
   &-state
     padding: 50px 0 0
-    color: $white
+    color: darken($white, 25%)
     display: grid
     grid-template-columns: 1fr
     grid-template-rows: repeat(5, 1fr)
@@ -269,8 +321,8 @@ dd
       grid-column: 1/1
       grid-row: 2/6
       z-index: 2
-      padding-top: 176px
-      margin-top: 13px
+      padding-top: 185px
+      margin-top: 11px
       padding-bottom: 119px
       border-top-right-radius: 95px
       border-bottom-left-radius: 95px
@@ -287,8 +339,8 @@ dd
 
     dt
       font-size: 37px
-      padding: 50px 15px 5px
-      line-height: 1.3
+      padding: 43px 15px 4px
+      line-height: 47px
       color: $white
 
   &-features
