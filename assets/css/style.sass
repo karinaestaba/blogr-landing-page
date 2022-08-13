@@ -78,6 +78,10 @@ a
   grid-template-columns: 1fr
   grid-template-rows: auto 1fr auto
 
+.submenu-container,
+.submenu
+  transition: all 1s
+
 .main
   &-header
     background-image: url("../images/bg-pattern-intro-mobile.svg"), linear-gradient(150deg,#ff8f70,#ff3d54)
@@ -137,6 +141,7 @@ a
 
         &:hover > .submenu-container, &:focus-within  > .submenu-container, .submenu-container:hover
           margin: 24px auto 0
+          transition: all 1s
 
           .submenu
             background: #efeff1
@@ -416,8 +421,30 @@ a
   100%
     opacity: 1
     transform: scale(1)
+
+@media screen and ( min-width: 376px)
+  .section
+    &-intro
+      .banner
+        img
+          margin-left: 0%
+
+    &-state
+      .dt
+        padding-top: 30%
+        
+    &-features
+      .banner
+        width: 100%
+
+        img
+          margin-left: 0
     
 @media screen and ( min-width: 998px)
+  .submenu-container,
+  .submenu
+    transition: none
+
   .toggle-nav
     display: none
 
@@ -581,7 +608,7 @@ a
 
         img
           position: absolute
-          right: -34%
+          right: -40%
           top: 37px
           width: 94%
           height: 102%
@@ -602,6 +629,9 @@ a
       grid-template-columns: 1fr 1fr
       grid-template-rows: repeat(6, 1fr)
       align-items: center
+
+      .dt
+        padding-top: 43px
 
       .banner
         grid-column: 1/2
@@ -660,6 +690,7 @@ a
           max-width: none
           width: 135%
           display: block
+          margin-left: -135px
 
       .text
         max-width: 620px
@@ -698,3 +729,10 @@ a
 
       &:last-of-type
         transform: translateX(-10px)
+
+@media screen and ( min-width: 1220px)
+  .section
+    &-intro
+      .banner
+        img
+          right: -34%
